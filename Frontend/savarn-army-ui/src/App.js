@@ -1,30 +1,34 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import MembershipPlan from './components/MembershipPlan';
-import VisionSection from './components/VisionSection';
-import FeaturesSection from './components/FeaturesSection';
-import CommitmentsSection from './components/CommitmentsSection';
-import SocialMediaSection from './components/SocialMediaSection';
-import FAQSection from './components/FAQSection';
-import EventsSection from './components/EventsSection';
 import Footer from './components/Footer';
-
 import './App.css';
+import LandingPage from './pages/LandingPage';
+import Registration from './pages/Registration';
+import AboutUs from './pages/AboutUs';
+import Events from './pages/Events';
+import Gallery from './pages/Gallery';
+import ContactUs from './pages/ContactUs';
+import DonateNow from './pages/DonateNow';
+import HelpUs from './pages/HelpUs';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <HeroSection />
-      <MembershipPlan />
-      <VisionSection />
-      <FeaturesSection />
-      <CommitmentsSection />
-      <SocialMediaSection />
-      <FAQSection />
-      <EventsSection />
-      <Footer />
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/donate-now" element={<DonateNow />} />
+          <Route path="/help" element={<HelpUs />} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }

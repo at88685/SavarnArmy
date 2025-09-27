@@ -1,23 +1,62 @@
 import React from 'react';
-import { Box, Typography, Button, Stack } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import CloseIcon from '@mui/icons-material/Close';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import {
+  SectionRoot,
+  ContentGrid,
+  PhotoCircle,
+  InfoCol,
+  MainTitle,
+  SubText,
+  List,
+  ListItem,
+  SocialIconsRow,
+  SocialIconBtn,
+} from '../styles/SocialMediaSection.styles';
+import content from '../content/socialMediaSectionContent';
 
 const SocialMediaSection = () => (
-  <Box sx={{ py: 4, textAlign: 'center' }}>
-    <Typography variant="h6" gutterBottom>
-      हमारे पास अपना सोशल मीडिया ऐप है।
-    </Typography>
-    <Typography variant="body2" gutterBottom>
-      हमारे सदस्य सवर्ण आर्मी का सोशल मीडिया वेबसाइट पर जुड़ सकते हैं।
-    </Typography>
-    <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 2 }}>
-      <Button startIcon={<FacebookIcon />} href="#" color="primary">Facebook</Button>
-      <Button startIcon={<InstagramIcon />} href="#" color="secondary">Instagram</Button>
-      <Button startIcon={<YouTubeIcon />} href="#" color="error">YouTube</Button>
-    </Stack>
-  </Box>
+  <SectionRoot>
+    <ContentGrid>
+      <PhotoCircle elevation={3}>
+        <img
+          src={content.imageUrl}
+          alt={content.imageAlt}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            borderRadius: '50%',
+          }}
+        />
+      </PhotoCircle>
+      <InfoCol>
+        <MainTitle>{content.title}</MainTitle>
+        <SubText>{content.description}</SubText>
+        <List>
+          {content.features.map((item, idx) => (
+            <ListItem key={idx}>{item}</ListItem>
+          ))}
+        </List>
+        <SocialIconsRow direction="row">
+          <SocialIconBtn href={content.links.facebook} aria-label="Facebook">
+            <FacebookIcon fontSize="inherit" />
+          </SocialIconBtn>
+          <SocialIconBtn href={content.links.instagram} aria-label="Instagram">
+            <InstagramIcon fontSize="inherit" />
+          </SocialIconBtn>
+          <SocialIconBtn href={content.links.close} aria-label="Close">
+            <CloseIcon fontSize="inherit" />
+          </SocialIconBtn>
+          <SocialIconBtn href={content.links.youtube} aria-label="YouTube">
+            <YouTubeIcon fontSize="inherit" />
+          </SocialIconBtn>
+        </SocialIconsRow>
+      </InfoCol>
+    </ContentGrid>
+  </SectionRoot>
 );
 
 export default SocialMediaSection;

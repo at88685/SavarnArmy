@@ -1,19 +1,49 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import {
+  FAQRoot,
+  FAQGrid,
+  FAQLeft,
+  FAQTitle,
+  FAQSubtitle,
+  FAQQuestion,
+  FAQAnswer,
+  FAQButton,
+  FAQRight,
+  FAQCard,
+  FAQCardTitle,
+  FAQCardContent,
+  FAQCardIcon,
+} from '../styles/FAQSection.styles';
+import faqContent from '../content/faqSectionContent';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 const FAQSection = () => (
-  <Box sx={{ py: 4, textAlign: 'center' }}>
-    <Typography variant="h6" gutterBottom>
-      प्रश्न और उत्तर
-    </Typography>
-    <Typography variant="body2" gutterBottom>
-      क्या आपके पास कोई धर्म है? <br />
-      अगर आपका उत्तर यहाँ नहीं मिला, बस हमें एक संदेश भेजें और हम तुरंत मदद करेंगे।
-    </Typography>
-    <Button variant="outlined" color="warning" sx={{ mt: 2 }}>
-      संपर्क करें
-    </Button>
-  </Box>
+  <FAQRoot>
+    <FAQGrid>
+      <FAQLeft>
+        <FAQTitle>{faqContent.left.title}</FAQTitle>
+        <FAQSubtitle>{faqContent.left.subtitle}</FAQSubtitle>
+        <FAQQuestion>{faqContent.left.question}</FAQQuestion>
+        <FAQAnswer>{faqContent.left.answer}</FAQAnswer>
+        <FAQButton variant="contained" color="warning">
+          {faqContent.left.button}
+        </FAQButton>
+      </FAQLeft>
+      <FAQRight>
+        {faqContent.right.map((faq, idx) => (
+          <FAQCard key={idx}>
+            <FAQCardTitle>
+              {faq.question}
+              <FAQCardIcon>
+                <InfoOutlinedIcon fontSize="small" />
+              </FAQCardIcon>
+            </FAQCardTitle>
+            <FAQCardContent>{faq.answer}</FAQCardContent>
+          </FAQCard>
+        ))}
+      </FAQRight>
+    </FAQGrid>
+  </FAQRoot>
 );
 
 export default FAQSection;

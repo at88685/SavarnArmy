@@ -1,21 +1,41 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent, Button } from '@mui/material';
+import {
+  EventsRoot,
+  EventsHeader,
+  EventsGrid,
+  EventCard,
+  EventImage,
+  EventCardContent,
+  EventTitle,
+  EventMeta,
+  EventButton,
+  EventsNavButton,
+} from '../styles/EventsSection.styles';
+import eventsContent from '../content/eventsSectionContent';
 
 const EventsSection = () => (
-  <Box sx={{ py: 4, textAlign: 'center' }}>
-    <Typography variant="h6" gutterBottom>
-      हमारे आयोजन
-    </Typography>
-    <Card sx={{ maxWidth: 400, mx: 'auto', mt: 2 }}>
-      <CardContent>
-        <Typography variant="body1">Testing Event</Typography>
-        <Typography variant="body2">स्थान: भारत • तिथि: 01-01-2024</Typography>
-        <Button variant="contained" color="warning" sx={{ mt: 2 }}>
-          View Details
-        </Button>
-      </CardContent>
-    </Card>
-  </Box>
+  <EventsRoot>
+    <EventsHeader>{eventsContent.title}</EventsHeader>
+    <EventsGrid>
+      {eventsContent.events.map((event, idx) => (
+        <EventCard key={idx} elevation={3}>
+          <EventImage src={event.image} alt={event.title} />
+          <EventCardContent>
+            <EventTitle>{event.title}</EventTitle>
+            <EventMeta>
+              {event.location} • {event.date}
+            </EventMeta>
+            <EventButton variant="contained" color="warning">
+              {event.button}
+            </EventButton>
+          </EventCardContent>
+        </EventCard>
+      ))}
+    </EventsGrid>
+    <EventsNavButton variant="contained" color="warning" disabled>
+      {eventsContent.navButton}
+    </EventsNavButton>
+  </EventsRoot>
 );
 
 export default EventsSection;

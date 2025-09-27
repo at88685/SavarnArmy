@@ -1,0 +1,120 @@
+.header-appbar {
+  border-bottom: 2px solid #FFA726 !important;
+  background: rgba(255,255,255,0.92) !important;
+  backdrop-filter: blur(6px) !important;
+  z-index: 1201 !important;
+}
+.header-toolbar {
+  min-height: 70px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  flex-wrap: wrap !important;
+}
+.header-logo-title {
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0;
+  flex-shrink: 1;
+}
+.header-nav-desktop {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  flex-wrap: wrap !important;
+}
+.header-nav-btn {
+  color: #222 !important;
+  font-weight: 500 !important;
+  font-size: 17px !important;
+  text-transform: none !important;
+  background: transparent !important;
+  transition: color 0.2s;
+}
+.header-nav-btn:hover,
+.header-nav-btn:focus {
+  color: #FFA726 !important;
+  background: transparent !important;
+}
+.header-hamburger {
+  display: none !important;
+}
+
+@media (max-width: 1279px) {
+  .header-nav-desktop {
+    display: none !important;
+  }
+  .header-hamburger {
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header-hamburger {
+    display: none !important;
+  }
+  .header-nav-desktop {
+    display: flex !important;
+  }
+}
+
+.header-hamburger .MuiIconButton-root,
+.header-hamburger .MuiSvgIcon-root {
+  color: #222 !important;
+  font-size: 2rem !important;
+}
+.header-drawer {
+  width: 240px !important;
+  background: rgba(255,255,255,0.97) !important;
+  backdrop-filter: blur(8px) !important;
+}
+.header-drawer-logo-title {
+  padding: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+.header-drawer-title {
+  font-size: 18px !important;
+}
+.header-drawer-nav-btn {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: #222 !important;
+}
+.header-drawer-donate-listitem {
+  justify-content: center !important;
+  margin-top: 8px !important;
+}
+
+@media (max-width: 1368px) {
+  .header-nav-desktop {
+    display: none !important;
+  }
+  .header-hamburger {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 1368px) {
+  .header-toolbar {
+    flex-direction: row !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .header-logo-title {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-toolbar {
+    flex-direction: row !important;
+    align-items: center !important;
+    min-height: 46px !important;
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+  }
+}

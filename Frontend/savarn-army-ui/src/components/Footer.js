@@ -1,20 +1,62 @@
 import React from 'react';
-import { Box, Typography, Link, Stack } from '@mui/material';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { footerContent } from '../content/footerContent';
+import '../styles/footer.css';
 
-const Footer = () => (
-  <Box sx={{ bgcolor: '#FFF3E0', py: 3, mt: 4 }}>
-    <Stack direction="row" spacing={2} justifyContent="center">
-      <Link href="#">Terms and Conditions</Link>
-      <Link href="#">Privacy Policy</Link>
-      <Link href="#">Contact Us</Link>
-    </Stack>
-    <Typography variant="body2" align="center" sx={{ mt: 2 }}>
-      © 2024 Savarn Seva Nyas | Designed & Developed by iGeekSquadlay
-    </Typography>
-    <Typography variant="body2" align="center">
-      संपर्क सूचना: help@savarnarmy.in | 9721246200
-    </Typography>
-  </Box>
-);
+const Footer = () => {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="footer" id="footerid">
+      <div className="footer-content">
+        <div className="footer-sections">
+          <div className="contact-us">
+            <h3>{footerContent.contactUs}</h3>
+            <p>{footerContent.addressLine1}</p>
+            <p>{footerContent.addressLine2}</p>
+            <p>{footerContent.emailLabel}: {footerContent.email}</p>
+            <p>{footerContent.phoneLabel}: {footerContent.phone}</p>
+          </div>
+          <div className="social-links">
+            <a href={footerContent.instagram} className="social-link" target="_blank" rel="noopener noreferrer"><InstagramIcon /></a>
+            <a href={footerContent.facebook} className="social-link" target="_blank" rel="noopener noreferrer"><FacebookRoundedIcon /></a>
+            <a href={`mailto:${footerContent.email}`} className="social-link" target="_blank" rel="noopener noreferrer"><EmailRoundedIcon /></a>
+            <a href={footerContent.whatsapp} className="social-link" target="_blank" rel="noopener noreferrer"><WhatsAppIcon /></a>
+          </div>
+          <div className="quick-links">
+            <h3>{footerContent.quickLinksTitle}</h3>
+            <ul>
+              <li>
+                <a href="#homeid"><span>{footerContent.home}</span></a>
+              </li>
+              <li>
+                <a href="#aboutid"><span>{footerContent.aboutUs}</span></a>
+              </li>
+              <li>
+                <a href="#servicesid"><span>{footerContent.services}</span></a>
+              </li>
+              <li>
+                <span>{footerContent.contact}</span>
+              </li>
+            </ul>
+          </div>
+          <iframe
+            src={footerContent.mapSrc}
+            style={{ borderRadius: 10, flex: "20%", minHeight: '20vh' }}
+            title="Savarn Army Location"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+        <p className="footer-copyright">
+          &copy; {year} {footerContent.copyright}
+        </p>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;

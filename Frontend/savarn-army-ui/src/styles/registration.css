@@ -1,0 +1,88 @@
+:root{
+  --input-height:56px;
+  --input-radius:8px;
+}
+
+.registration-bg {
+  background: #eaf6ff;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.registration-form {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.registration-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.registration-logo { width:70px; margin-right:16px }
+.registration-title { font-weight:700; font-size:24px; margin:0 }
+
+/* grid fallback/utility in CSS in case styled component isn't applied */
+.reg-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 28px;
+  align-items: start;
+}
+
+.reg-item { width:100%; }
+
+/* Make MUI textfields consistent */
+.MuiFormControl-root { width:100% !important; }
+.MuiInputBase-root {
+  background: #f7fbff !important;
+  border-radius: var(--input-radius) !important;
+  min-height: var(--input-height) !important;
+  height: var(--input-height) !important;
+}
+.MuiOutlinedInput-input {
+  padding: 12px 12px !important;
+  height: calc(var(--input-height) - 24px) !important;
+  box-sizing: border-box;
+}
+.MuiSelect-select {
+  padding: 12px 36px 12px 12px !important;
+  height: calc(var(--input-height) - 0px) !important;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.MuiSelect-icon {
+  right: 12px !important;
+}
+.MuiInputAdornment-root { margin-right:8px }
+.MuiFormHelperText-root { margin-left:0 }
+
+/* Spacing between rows (labels/helpertext) */
+.reg-item .MuiFormControl-root { margin-bottom: 6px }
+
+/* Upload area centering */
+.upload-wrapper { display:flex; justify-content:center; margin-top:18px }
+
+/* Button */
+.register-btn { display:block; margin: 18px auto 0; }
+
+@media (max-width:700px){
+  .reg-grid { grid-template-columns: 1fr; }
+  .registration-form { padding:1rem }
+}
+@media (max-width: 500px) {
+  .registration-form {
+    padding: 0.5rem 0.2rem !important;
+  }
+  .registration-title {
+    font-size: 18px !important;
+  }
+}
