@@ -99,7 +99,7 @@ function Registration() {
 
     return new Promise((resolve, reject) => {
       const options = {
-        key: 'rzp_test_RHyz0ebm9yQEhX', //change this key
+        key: 'rzp_live_RNM586voy9aDb5', //change this key
         amount: orderData.amount || PAYMENT_AMOUNT,
         currency: orderData.currency || PAYMENT_CURRENCY,
         name: 'Savarn Army',

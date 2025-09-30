@@ -86,7 +86,7 @@ function DonateNow() {
 
     return new Promise((resolve, reject) => {
       const options = {
-        key: orderData.key || orderData.razorpay_key || 'rzp_test_RHyz0ebm9yQEhX', // Replace with your Razorpay key
+        key: 'rzp_live_RNM586voy9aDb5', // Replace with your Razorpay key
         amount: orderData.amount,
         currency: orderData.currency,
         name: 'Savarn Army',

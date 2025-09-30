@@ -1,37 +1,80 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import * as htmlToImage from 'html-to-image';
 import {
   CardWrapper,
   IdCard,
   CardHeader,
-  HeaderLogoLeft,
-  HeaderLogoRight,
+  HeaderLogo,
+  HeaderText,
   HeaderTitle,
   HeaderSubtitle,
   CardBody,
-  UserName,
-  UserId,
-  DetailsSection,
+  UserAvatar,
+  UserDetails,
   DetailItem,
   CardFooter,
-  DateInfo,
+  FooterText,
   DownloadButtons,
   DownloadButton,
 } from '../StyledComponents/RegistrationCard.styled';
-import { Phone, Email } from '@mui/icons-material';
 import logo from '../assets/logo/logo.png';
-import logo2 from '../assets/photos/sarvesh-pandey-transformed.webp';
+import logo2 from '../assets/photos/sarvesh-pandey.jpeg';
+import Loader from './Loader';
 
 const formatDate = (dateString) => {
+  if (!dateString) return '';
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
   return new Date(dateString).toLocaleDateString('en-IN', options);
 };
 
 const RegistrationCard = ({ userData }) => {
   const cardRef = useRef(null);
+  const [base64Image, setBase64Image] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [loadingMessage, setLoadingMessage] = useState(
+    'Generating membership card...'
+  );
+
+  const { userId, fullName, mobile, imageURL, createdOn, validTill } = userData;
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      if (!imageURL) {
+        setLoading(false);
+        return;
+      }
+      try {
+        setLoading(true);
+        const response = await fetch(
+          'https://5ybhbgwo1c.execute-api.ap-south-1.amazonaws.com/get-image',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ imageUrl: imageURL }),
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch base64 image.');
+        }
+
+        const data = await response.json();
+        setBase64Image(data.imageBase64);
+      } catch (error) {
+        console.error('Error fetching image:', error);
+      } finally {
+        setLoading(false);
+        setLoadingMessage('');
+      }
+    };
+
+    fetchImage();
+  }, [imageURL]);
 
   const handleDownloadImage = () => {
-    
+    if (cardRef.current) {
       htmlToImage
         .toPng(cardRef.current, { cacheBust: true })
         .then((dataUrl) => {
@@ -43,60 +86,42 @@ const RegistrationCard = ({ userData }) => {
         .catch((err) => {
           console.error('oops, something went wrong!', err);
         });
-    
+    }
   };
 
-  const {
-    userId,
-    fullName,
-    mobile,
-    email,
-    createdOn,
-    validTill,
-  } = userData;
+  if (loading) {
+    return <Loader open={loading} message={loadingMessage} />;
+  }
 
   return (
     <CardWrapper>
       <IdCard ref={cardRef}>
         <CardHeader>
-          <HeaderLogoLeft src={logo} alt="Logo" />
-          <HeaderTitle>Savarn Army</HeaderTitle>
-          <HeaderSubtitle>Membership Card</HeaderSubtitle>
-          <HeaderLogoRight src={logo2} alt="Logo" />
+          <HeaderLogo src={logo} alt="Logo" />
+          <HeaderText>
+            <HeaderTitle>SAWARN ARMY CARD</HeaderTitle>
+            <HeaderSubtitle>Sawarn Seva Nyas, Regd. 10/020</HeaderSubtitle>
+          </HeaderText>
+          <HeaderLogo src={logo2} alt="Right Logo" />
         </CardHeader>
-
         <CardBody>
-          <UserName>{fullName}</UserName>
-          <UserId>{userId}</UserId>
+          <UserAvatar src={base64Image} alt="User Avatar" />
+          <UserDetails>
+            <DetailItem>Name: {fullName}</DetailItem>
+            <DetailItem>ID Code: {userId}</DetailItem>
+            <DetailItem>M. No: {mobile}</DetailItem>
+            <DetailItem>Issued On: {formatDate(createdOn)}</DetailItem>
+            <DetailItem>Valid Till: {formatDate(validTill)}</DetailItem>
+          </UserDetails>
         </CardBody>
-
-        <DetailsSection>
-          <DetailItem>
-            <Phone className="icon" />
-            <span>{mobile}</span>
-          </DetailItem>
-          <DetailItem>
-            <Email className="icon" />
-            <span>{email}</span>
-          </DetailItem>
-        </DetailsSection>
-
         <CardFooter>
-          <DateInfo>
-            <div className="label">Issued On</div>
-            <div className="date">{formatDate(createdOn)}</div>
-          </DateInfo>
-          {/* <QrCode src={qrCodeImage} alt="QR Code" /> */}
-          <DateInfo>
-            <div className="label">Valid Till</div>
-            <div className="date">{formatDate(validTill)}</div>
-          </DateInfo>
+          <FooterText>मेरा देश । मेरा अभिमान । राष्ट्र सर्वोपरि</FooterText>
         </CardFooter>
       </IdCard>
 
       <DownloadButtons>
-        <DownloadButton className="image" onClick={handleDownloadImage}>
-          Download Image
+        <DownloadButton onClick={handleDownloadImage}>
+          Download Card
         </DownloadButton>
       </DownloadButtons>
     </CardWrapper>

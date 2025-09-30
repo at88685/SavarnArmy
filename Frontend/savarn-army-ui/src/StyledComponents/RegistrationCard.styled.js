@@ -1,7 +1,7 @@
 import { Box, Typography, Button, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-// The main container for the card, with a subtle background
+// The main container for the card
 export const CardWrapper = styled(Box)({
   padding: '20px',
   background: '#f4f6f8',
@@ -14,137 +14,122 @@ export const CardWrapper = styled(Box)({
 
 // The ID card itself
 export const IdCard = styled(Paper)(({ theme }) => ({
-  width: 340,
-  fontFamily: '"Poppins", "Roboto", sans-serif',
-  borderRadius: '20px',
+  width: '100%',
+  maxWidth: 550,
+  fontFamily: '"Inter", "Roboto", sans-serif',
+  borderRadius: '10px',
   overflow: 'hidden',
-  boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
-  background: '#fff',
-  border: '1px solid #eee',
-}));
-
-// Header of the card with gradient background
-export const CardHeader = styled(Box)(({ theme }) => ({
-  background: 'linear-gradient(45deg, #FFA726, #FFC107)',
+  background: '#F9A825', // Orange background from image
+  color: 'white',
   padding: theme.spacing(2),
-  textAlign: 'center',
-  color: '#fff',
-  position: 'relative',
+  border: '2px solid white',
 }));
 
-export const HeaderLogoLeft = styled('img')({
-  width: 50,
-  height: 50,
-  position: 'absolute',
-  top: '16px',
-  left: '16px',
-});
+// Header of the card
+export const CardHeader = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '16px',
+  paddingBottom: theme.spacing(1),
+  borderBottom: '2px solid white',
+  marginBottom: theme.spacing(2),
+  justifyContent: 'space-between',
+  [theme.breakpoints.down('sm')]: {
+    textAlign: 'center',
+  },
+}));
 
-export const HeaderLogoRight = styled('img')({
+export const HeaderLogo = styled('img')({
   width: 50,
   height: 50,
-  position: 'absolute',
-  top: '16px',
-  right: '16px',
   borderRadius: '50%',
 });
 
-export const HeaderTitle = styled(Typography)({
-  fontWeight: 700,
-  fontSize: '1.2rem',
-  letterSpacing: '1px',
-  textTransform: 'uppercase',
+export const HeaderText = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
 });
 
+export const HeaderTitle = styled(Typography)(({ theme }) => ({
+  fontWeight: 700,
+  fontSize: '1.5rem',
+  letterSpacing: '2px',
+  color: 'white',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '.8rem',
+  },
+}));
+
 export const HeaderSubtitle = styled(Typography)({
-  fontSize: '0.8rem',
-  opacity: 0.9,
+  fontSize: '0.6rem',
+  color: 'white',
+  opacity: 1,
 });
 
 // Main body of the card
 export const CardBody = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(2, 2),
-  //paddingTop: theme.spacing(4),
-  textAlign: 'center',
-}));
-
-export const UserAvatar = styled('img')({
-  width: 120,
-  height: 120,
-  borderRadius: '50%',
-  border: '5px solid #fff',
-  boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
-  marginTop: '-80px',
-  background: '#fff',
-  objectFit: 'cover',
-});
-
-export const UserName = styled(Typography)({
-  fontWeight: 600,
-  fontSize: '1.5rem',
-  marginTop: '12px',
-  color: '#333',
-});
-
-export const UserId = styled(Typography)({
-  fontSize: '0.8rem',
-  color: '#777',
-  background: '#f0f0f0',
-  padding: '4px 8px',
-  borderRadius: '8px',
-  display: 'inline-block',
-  marginTop: '8px',
-  fontFamily: 'monospace',
-});
-
-// Details section (mobile, email)
-export const DetailsSection = styled(Box)(({ theme }) => ({
-  textAlign: 'left',
-  padding: theme.spacing(0, 3),
-  marginTop: '16px',
-}));
-
-export const DetailItem = styled(Box)({
   display: 'flex',
   alignItems: 'center',
-  marginBottom: '12px',
-  fontSize: '0.9rem',
-  color: '#555',
-  '& .icon': {
-    marginRight: '12px',
-    color: '#FFA726',
-    fontSize: '20px',
+  gap: '20px',
+  padding: theme.spacing(2, 0),
+  [theme.breakpoints.down('sm')]: {
+    padding: theme.spacing(1, 0),
   },
-});
+}));
+
+export const UserAvatar = styled('img')(({ theme }) =>({
+  width: 120,
+  height: 140,
+  objectFit: 'cover',
+  background: '#fff',
+  padding: '4px',
+  border: '1px solid #ddd',
+  borderRadius: '8px',
+  [theme.breakpoints.down('sm')]: {
+  width: 80,
+  height: 100,
+  },
+}));
+
+export const UserDetails = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '4px',
+  alignItems: 'flex-start',
+  [theme.breakpoints.down('sm')]: {
+    alignItems: 'flex-start',
+    gap: '4px',
+  },
+}));
+
+export const DetailItem = styled(Typography)(({ theme }) => ({
+  fontSize: '1.1rem',
+  fontWeight: 500,
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '.8rem',
+  },
+}));
 
 // Footer of the card
 export const CardFooter = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  background: '#f9f9f9',
-  padding: theme.spacing(1.5, 2),
-  borderTop: '1px solid #eee',
+  padding: theme.spacing(2, 0, 1, 0),
+  textAlign: 'center',
+  borderTop: '2px solid white',
+  marginTop: theme.spacing(2),
+  [theme.breakpoints.down('sm')]: {
+    marginBottom: theme.spacing(0),
+    padding: theme.spacing(2, 0, 0, 0),
+  },
 }));
 
-export const DateInfo = styled(Box)({
-  textAlign: 'center',
-  '& .label': {
-    fontSize: '0.7rem',
-    color: '#888',
-    fontWeight: 500,
+export const FooterText = styled(Typography)(({ theme }) => ({
+  fontSize: '1.2rem',
+  fontWeight: 'bold',
+  color: 'white',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '.9rem',
   },
-  '& .date': {
-    fontSize: '0.8rem',
-    fontWeight: 600,
-    color: '#444',
-  },
-});
-
-export const QrCode = styled('img')({
-  width: 50,
-  height: 50,
-});
+}));
 
 // Download buttons container
 export const DownloadButtons = styled(Box)({
@@ -155,21 +140,12 @@ export const DownloadButtons = styled(Box)({
 
 export const DownloadButton = styled(Button)(({ theme }) => ({
   fontWeight: 600,
-  borderRadius: '12px',
+  borderRadius: '8px',
   padding: '8px 20px',
   transition: 'all 0.3s ease',
-  '&.image': {
-    background: '#2196F3',
-    color: '#fff',
-    '&:hover': {
-      background: '#1976D2',
-    },
-  },
-  '&.pdf': {
-    background: '#F44336',
-    color: '#fff',
-    '&:hover': {
-      background: '#D32F2F',
-    },
+  background: '#2196F3',
+  color: '#fff',
+  '&:hover': {
+    background: '#1976D2',
   },
 }));

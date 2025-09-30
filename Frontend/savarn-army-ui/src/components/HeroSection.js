@@ -110,7 +110,7 @@ const HeroSection = () => (
               }}
             >
               <Avatar
-                src={require('../assets/photos/sarvesh-pandey-transformed.webp')}
+                src={require('../assets/photos/sarvesh-pandey.jpeg')}
                 alt={HERO_TEXT.member1.name}
                 className="hero-avatar"
                 sx={{
