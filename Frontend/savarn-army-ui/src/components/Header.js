@@ -60,16 +60,24 @@ const Header = () => {
             </DonateButton>
           </Link>
         </Box>
-        {/* Mobile/Tablet Hamburger */}
+        {/* Mobile/Tablet Donate + Hamburger */}
         <Box
-          className="header-hamburger"
+          className="header-nav-mobile"
           sx={{
-            display: { xs: 'flex', sm: 'flex', md: 'none' }
+            display: { xs: 'flex', sm: 'flex', md: 'none' },
+            alignItems: 'center',
+            gap: 1,
           }}
         >
+          <Link to="/donate-now" style={{ textDecoration: 'none' }}>
+            <DonateButton sx={{ padding: '6px 10px', fontSize: '0.8rem' }}>
+              {HEADER_TEXT.donate}
+            </DonateButton>
+          </Link>
+
           <IconButton
             edge="end"
-            color="inherit"
+            color="black"
             aria-label="menu"
             onClick={() => setDrawerOpen(true)}
           >
@@ -114,7 +122,8 @@ const Header = () => {
               </Link>
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding className="header-drawer-donate-listitem" onClick={() => setDrawerOpen(false)}>
+          <ListItem disablePadding className="header-drawer-donate-listitem">
+            <ListItemButton onClick={() => setDrawerOpen(false)}>
             <Link to='donate-now' style={{ color: 'inherit', textDecoration: 'none', width: '100%', textAlign: 'center' }}>
             <DonateButton fullWidth>
               
@@ -122,6 +131,7 @@ const Header = () => {
              
             </DonateButton>
              </Link>
+             </ListItemButton>
           </ListItem>
         </List>
       </Drawer>

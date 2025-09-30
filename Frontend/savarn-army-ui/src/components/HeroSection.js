@@ -131,7 +131,7 @@ const HeroSection = () => (
               }}
             >
               <Avatar
-                src={require('../assets/photos/shivam-transformed.webp')}
+                src={require('../assets/photos/shivam-singh-1.jpeg')}
                 alt={HERO_TEXT.member2.name}
                 className="hero-avatar"
                 sx={{

@@ -20,7 +20,7 @@ export const Title = styled('span')(({ theme }) => ({
 }));
 
 export const DonateButton = styled(Button)(({ theme }) => ({
-  background: '#000',
+  background: 'orange',
   color: '#fff',
   borderRadius: 8,
   paddingLeft: theme.spacing(2.5),
@@ -41,7 +41,5 @@ export const DonateButton = styled(Button)(({ theme }) => ({
   },
   [theme.breakpoints.down('md')]: {
     fontSize: 15,
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
   },
 }));
