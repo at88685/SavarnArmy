@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import './App.css';
+import ScrollToTop from './components/ScrollToTop';
+import LandingPage from './pages/LandingPage';
+import Registration from './pages/Registration';
+import AboutUs from './pages/AboutUs';
+import Events from './pages/Events';
+import Gallery from './pages/Gallery';
+import ContactUs from './pages/ContactUs';
+import DonateNow from './pages/DonateNow';
+import HelpUs from './pages/HelpUs';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <ScrollToTop />
+        <Header />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/donate-now" element={<DonateNow />} />
+          <Route path="/help" element={<HelpUs />} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }

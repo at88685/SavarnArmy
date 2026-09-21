@@ -1,0 +1,38 @@
+.vision-card-animate {
+  animation: visionFadeInUp 1s cubic-bezier(.4,0,.2,1);
+}
+
+.vision-card-img {
+  width: 100%;
+  height: 12.5rem;
+  object-fit: cover;
+  border-radius: 0.7rem 0.7rem 0 0;
+  margin-bottom: .5rem;
+  background: #eee;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .vision-card-img {
+    height: 6rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .vision-card-img {
+    height: 4.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  .vision-card-animate {
+    margin-bottom: 1.2rem !important;
+    padding-left: 0.2rem !important;
+    padding-right: 0.2rem !important;
+  }
+}
+
+@keyframes visionFadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: none;}
+}

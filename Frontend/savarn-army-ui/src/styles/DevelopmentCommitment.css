@@ -1,0 +1,73 @@
+.dev-commit-root {
+  margin: 2rem 0 1.5rem 0;
+  text-align: center;
+}
+.dev-commit-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.1rem;
+  color: #222;
+  font-family: inherit;
+}
+.dev-commit-stack {
+  width: 100%;
+  align-items: center;
+  padding-top: 1rem;
+}
+.dev-commit-card {
+  min-width: 13.75rem;  /* 220px */
+  max-width: 20rem;     /* 320px */
+  margin: 0 auto;
+  padding: 1.1rem 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.07);
+  background: #fff;
+  color: #222;
+  transition: box-shadow 0.2s, transform 0.2s;
+  text-align: center;
+  font-family: inherit;
+}
+.dev-commit-card:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+.dev-commit-card:hover {
+  box-shadow: 0 0.25rem 1rem rgba(255,167,38,0.18);
+  transform: translateY(-0.19rem) scale(1.03);
+  background: #FFF8EE;
+}
+
+/* Tablet and below */
+@media (max-width: 1368px) {
+  .dev-commit-root {
+    margin: 1.5rem 0 1.2rem 0;
+  }
+  .dev-commit-card {
+    min-width: 11rem;
+    max-width: 16rem;
+    padding: 1rem 1.2rem;
+    font-size: 1.05rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .dev-commit-root {
+    margin: 1rem 0 0.8rem 0;
+  }
+  .dev-commit-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  .dev-commit-card {
+    min-width: 9.5rem;
+    max-width: 100%;
+    padding: 0.8rem 0.7rem;
+    font-size: 0.98rem;
+    border-radius: 0.6rem;
+  }
+  .dev-commit-card:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}

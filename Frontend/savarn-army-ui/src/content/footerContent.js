@@ -1,0 +1,20 @@
+export const footerContent = {
+  contactUs: 'संपर्क करें',
+  addressLine1: 'Savarn Army, Head Office',
+  addressLine2: 'Lucknow, Uttar Pradesh, India',
+  emailLabel: 'Email',
+  email: 'sawarnarmy690@gmail.com',
+  phoneLabel: 'Phone',
+  phone: '8887807545',
+  instagram: 'https://www.instagram.com/sawarnarmychief',
+  facebook: 'https://www.facebook.com/savarnarmy',
+  whatsapp: 'https://wa.me/918887807545',
+  quickLinksTitle: 'Quick Links',
+  home: 'होम',
+  aboutUs: 'हमारे बारे में',
+  services: 'सेवाएं',
+  contact: 'संपर्क करें',
+  mapSrc:
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.817698417655!2d80.9461593150445!3d26.84669398315809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2a0b7e8e0e7%3A0x7e8e0e7b7e8e0e7b!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1720812331546!5m2!1sen!2sin',
+  copyright: 'Savarn Army. All rights reserved.',
+};
