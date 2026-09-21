@@ -17,6 +17,7 @@ import {
 import '../styles/registration.css';
 import logo from '../assets/logo/logo.png';
 import { STATES, DISTRICTS } from '../constants/location.constants';
+import { baseURL, paymentAmount, razorPayKey } from '../constants/appConstants';
 
 const initialState = {
   fullName: '',
@@ -60,8 +61,8 @@ function Registration() {
   // Add payment amount and Razorpay loader
   const PAYMENT_AMOUNT = 100; // amount in paise (1.20 INR) — update as needed
   const PAYMENT_CURRENCY = 'INR';
-  const CREATE_ORDER_URL = 'https://5ybhbgwo1c.execute-api.ap-south-1.amazonaws.com/create-orders';
-  const REGISTER_USER_URL = 'https://5ybhbgwo1c.execute-api.ap-south-1.amazonaws.com/register-user'; // update to your real endpoint
+  const CREATE_ORDER_URL = `${baseURL}/create-orders`;
+  const REGISTER_USER_URL = `${baseURL}/register-user`; // update to your real endpoint
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -99,11 +100,11 @@ function Registration() {
 
     return new Promise((resolve, reject) => {
       const options = {
-        key: 'rzp_live_RNM586voy9aDb5', //change this key
-        amount: orderData.amount || PAYMENT_AMOUNT,
+        key: razorPayKey, //change this key
+        amount: orderData.amount || paymentAmount,
         currency: orderData.currency || PAYMENT_CURRENCY,
-        name: 'Savarn Army',
-        description: 'Membership fee',
+        name: 'Sawarn Army',
+        description: 'Membership fees',
         image: logo,
         order_id: orderData.id || orderData.order_id,
         handler: function (response) {
@@ -390,12 +391,12 @@ function Registration() {
 
           <div className="reg-item">
             <StyledTextField
-              label="Added by (optional)"
+              label="Referred By"
               name="addedBy"
               value={form.addedBy}
               onChange={handleChange}
               icon="👤"
-              placeholder="Enter your name (optional)"
+              placeholder=""
             />
           </div>
         </RegGrid>

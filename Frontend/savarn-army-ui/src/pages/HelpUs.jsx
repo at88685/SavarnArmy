@@ -23,6 +23,7 @@ import StyledTextField from '../components/Styled/StyledTextField';
 import Loader from '../components/Loader';
 import logo from '../assets/logo/logo.png';
 import { STATES, DISTRICTS } from '../constants/location.constants';
+import { baseURL } from '../constants/appConstants';
 
 const helpTypes = [
   'Social',
@@ -84,7 +85,7 @@ function HelpUs() {
     return newErrors;
   };
 
-  const SEND_HELP_EMAIL_URL = 'https://5ybhbgwo1c.execute-api.ap-south-1.amazonaws.com/send-help-email'; // Replace with your actual endpoint
+  const SEND_HELP_EMAIL_URL = `${baseURL}/send-help=email`; // Replace with your actual endpoint
 
   const handleSubmit = async (e) => {
     e.preventDefault();

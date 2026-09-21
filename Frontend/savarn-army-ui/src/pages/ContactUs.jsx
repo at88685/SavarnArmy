@@ -15,6 +15,7 @@ import {
 } from '../StyledComponents/ContactUs.styled';
 import { Phone, Email } from '@mui/icons-material';
 import Loader from '../components/Loader';
+import { baseURL } from '../constants/appConstants';
 
 const initialState = {
   fullName: '',
@@ -45,7 +46,7 @@ function ContactUs() {
     return newErrors;
   };
 
-  const SEND_EMAIL_URL = 'https://5ybhbgwo1c.execute-api.ap-south-1.amazonaws.com/send-email'; // Replace with your actual endpoint
+  const SEND_EMAIL_URL = `${baseURL}/send-email`; // Replace with your actual endpoint
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -154,11 +155,11 @@ function ContactUs() {
           <InfoText>How can we help you?</InfoText>
           <ContactDetail>
             <Phone className="icon" />
-            <Typography variant="body1">9721264200</Typography>
+            <Typography variant="body1">8887807545</Typography>
           </ContactDetail>
           <ContactDetail>
             <Email className="icon" />
-            <Typography variant="body1">help@sawarnarmy.in</Typography>
+            <Typography variant="body1">sawarnarmy690@gmail.com</Typography>
           </ContactDetail>
           <InfoTitle style={{ marginTop: '2rem' }}>
             Also, Follow us on social media

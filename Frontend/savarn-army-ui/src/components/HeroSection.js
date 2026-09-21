@@ -123,7 +123,7 @@ const HeroSection = () => (
               <Role sx={{ fontSize: { xs: '0.95rem', md: '1rem' } }}>{HERO_TEXT.member1.role}</Role>
             </FixedCard>
           </AnimatedBox>
-          <AnimatedBox direction="up" delay="0.4s">
+          {/* <AnimatedBox direction="up" delay="0.4s">
             <FixedCard
               sx={{
                 width: { xs: '12rem', sm: '10rem', md: '13rem' },
@@ -142,7 +142,7 @@ const HeroSection = () => (
               <Name sx={{ fontSize: { xs: '1rem', md: '1.1rem' } }}>{HERO_TEXT.member2.name}</Name>
               <Role sx={{ fontSize: { xs: '0.95rem', md: '1rem' } }}>{HERO_TEXT.member2.role}</Role>
             </FixedCard>
-          </AnimatedBox>
+          </AnimatedBox> */}
         </CardsRow>
         <MembershipCard
           sx={{

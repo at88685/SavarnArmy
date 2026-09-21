@@ -88,10 +88,10 @@ function AboutUs() {
           <AnimatedSection direction="right" delay="0.8s">
             <ContentCard>
               <SectionTitle variant="h2">
-                सवर्ण सेना का गठन
+                सवर्ण आर्मी का गठन
               </SectionTitle>
               <BodyText>
-                समाज के बुद्धिजीवियों के मार्गदर्शन के अनुरूप <HighlightText>सवर्ण सेना का जन्म हुआ</HighlightText>। 
+                समाज के बुद्धिजीवियों के मार्गदर्शन के अनुरूप <HighlightText>सवर्ण आर्मी का जन्म हुआ</HighlightText>। 
                 हमारे संगठन की विशेषता इसका सक्रिय और उत्साही दृष्टिकोण है, जो समाज में सकारात्मक बदलाव लाना चाहता है।
               </BodyText>
               <BodyText>
@@ -109,7 +109,7 @@ function AboutUs() {
               हमारा दृष्टिकोण
             </SectionTitle>
             <BodyText>
-              सवर्ण सेना एक ऐसे समाज की कल्पना करती है जहां <HighlightText>जाति, धर्म या किसी अन्य कारक के 
+              सवर्ण आर्मी एक ऐसे समाज की कल्पना करती है जहां <HighlightText>जाति, धर्म या किसी अन्य कारक के 
               आधार पर भेदभाव खत्म हो जाए</HighlightText>। हम ईर्ष्या या घृणा से रहित एकता का माहौल बनाने का प्रयास 
               करते हैं, जहां सामान्य वर्ग के अधिकारों और अधिकारों की लगातार रक्षा और संरक्षण किया जाता है।
             </BodyText>
@@ -120,7 +120,7 @@ function AboutUs() {
         <AnimatedSection direction="up" delay="1.2s">
           <ContentCard>
             <IntroText>
-              अधिक न्यायपूर्ण और न्यायसंगत समाज के निर्माण के हमारे मिशन में <HighlightText>सवर्ण सेना से जुड़ें</HighlightText>। 
+              अधिक न्यायपूर्ण और न्यायसंगत समाज के निर्माण के हमारे मिशन में <HighlightText>सवर्ण आर्मी से जुड़ें</HighlightText>। 
               साथ मिलकर, हम बदलाव ला सकते हैं और भारत में आम वर्ग के लिए सकारात्मक बदलाव ला सकते हैं।
             </IntroText>
           </ContentCard>

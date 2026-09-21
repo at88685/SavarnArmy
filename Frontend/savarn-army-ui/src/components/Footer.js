@@ -30,16 +30,13 @@ const Footer = () => {
             <h3>{footerContent.quickLinksTitle}</h3>
             <ul>
               <li>
-                <a href="#homeid"><span>{footerContent.home}</span></a>
+                <a href="/"><span>{footerContent.home}</span></a>
               </li>
               <li>
-                <a href="#aboutid"><span>{footerContent.aboutUs}</span></a>
+                <a href="about"><span>{footerContent.aboutUs}</span></a>
               </li>
               <li>
-                <a href="#servicesid"><span>{footerContent.services}</span></a>
-              </li>
-              <li>
-                <span>{footerContent.contact}</span>
+                <a href="contact"><span>{footerContent.contact}</span></a>
               </li>
             </ul>
           </div>

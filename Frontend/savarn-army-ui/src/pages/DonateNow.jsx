@@ -13,6 +13,7 @@ import {
 import StyledTextField from '../components/Styled/StyledTextField';
 import Loader from '../components/Loader';
 import logo from '../assets/logo/logo.png';
+import { baseURL, razorPayKey } from '../constants/appConstants';
 
 const initialState = {
   fullName: '',
@@ -51,8 +52,8 @@ function DonateNow() {
     return newErrors;
   };
 
-  const CREATE_ORDER_URL = 'https://5ybhbgwo1c.execute-api.ap-south-1.amazonaws.com/create-orders';
-  const SAVE_DONATION_URL = 'https://5ybhbgwo1c.execute-api.ap-south-1.amazonaws.com/save-donation'; // Replace with your actual endpoint
+  const CREATE_ORDER_URL = `${baseURL}/create-orders`;
+  const SAVE_DONATION_URL = `${baseURL}/save-donation`; // Replace with your actual endpoint
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -86,10 +87,10 @@ function DonateNow() {
 
     return new Promise((resolve, reject) => {
       const options = {
-        key: 'rzp_live_RNM586voy9aDb5', // Replace with your Razorpay key
+        key: razorPayKey, // Replace with your Razorpay key
         amount: orderData.amount,
         currency: orderData.currency,
-        name: 'Savarn Army',
+        name: 'Sawarn Army',
         description: 'Donation',
         image: logo,
         order_id: orderData.id || orderData.order_id,
